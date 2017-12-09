@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source .env
+source ~/backup-manager/.env
 
 for i in "${MYSQL_DATABASES[@]}"
 do
@@ -14,10 +14,8 @@ do
     aws s3 cp ${TMP_DIR}/${FILE_NAME} s3://${S3_BUCKET}/${S3_ROOT}/${FILE_NAME}
     if [ "$?" -ne "0" ]; then
         echo "Upload to AWS failed"
-        exit 1
     fi
     rm ${TMP_DIR}/${FILE_NAME}
-    exit 0
 fi
 
 echo "Backup file not created"
