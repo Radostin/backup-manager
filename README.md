@@ -1,0 +1,1 @@
+Inspired by https://serversforhackers.com/c/backup-to-s3
